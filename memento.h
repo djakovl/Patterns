@@ -25,7 +25,7 @@ public:
     }
     void restore(const Memento& m) {
         state = m.getState();
-        std::cout << "Originator: восстановлен state = " << state << "\n";
+        std::cout << "Originator: restored state = " << state << "\n";
     }
 };
 

@@ -12,7 +12,7 @@ public:
 class RealSubject : public Subject {
 public:
     void request() const override {
-        std::cout << "RealSubject: обрабатываю запрос\n";
+        std::cout << "RealSubject: proccessing request\n";
     }
 };
 
@@ -21,11 +21,11 @@ class Proxy : public Subject {
     mutable std::unique_ptr<RealSubject> realSubject;
 
     bool checkAccess() const {
-        std::cout << "Proxy: проверяю доступ\n";
+        std::cout << "Proxy: check request\n";
         return true;
     }
     void logAccess() const {
-        std::cout << "Proxy: логирую запрос\n";
+        std::cout << "Proxy: log request\n";
     }
 public:
     void request() const override {

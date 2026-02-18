@@ -29,13 +29,13 @@ public:
 class ConcreteObserverA : public Observer {
 public:
     void update(const std::string& event) override {
-        std::cout << "ObserverA: получил событие \"" << event << "\"\n";
+        std::cout << "ObserverA: get event \"" << event << "\"\n";
     }
 };
 
 class ConcreteObserverB : public Observer {
 public:
     void update(const std::string& event) override {
-        std::cout << "ObserverB: получил событие \"" << event << "\"\n";
+        std::cout << "ObserverB: get event \"" << event << "\"\n";
     }
 };

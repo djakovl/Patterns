@@ -25,7 +25,7 @@ protected:
         std::cout << "ConcreteClassA: requiredOperation\n";
     }
     void hook() const override {
-        std::cout << "ConcreteClassA: hook (переопределён)\n";
+        std::cout << "ConcreteClassA: hook (updated)\n";
     }
 };
 

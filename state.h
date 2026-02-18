@@ -26,12 +26,12 @@ public:
 class ConcreteStateB : public State {
 public:
     void handle(StateContext& ctx) override {
-        std::cout << "StateB: обрабатываю, перехожу в A\n";
+        std::cout << "StateB: processing, go to A\n";
         ctx.setState(std::make_unique<ConcreteStateA>());
     }
 };
 
 inline void ConcreteStateA::handle(StateContext& ctx) {
-    std::cout << "StateA: обрабатываю, перехожу в B\n";
+    std::cout << "StateA: processing, go to  B\n";
     ctx.setState(std::make_unique<ConcreteStateB>());
 }

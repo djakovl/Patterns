@@ -46,11 +46,11 @@ public:
     }
     void notify(BaseComponent* sender, const std::string& event) const override {
         if (event == "A") {
-            std::cout << "Mediator: реагирует на A, вызывает doC\n";
+            std::cout << "Mediator: reacting A, call doC\n";
             compB->doC();
         }
         if (event == "B") {
-            std::cout << "Mediator: реагирует на B\n";
+            std::cout << "Mediator: reacting B\n";
         }
     }
 };
