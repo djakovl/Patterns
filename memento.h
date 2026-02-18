@@ -1,0 +1,46 @@
+#pragma once
+#include <iostream>
+#include <memory>
+#include <vector>
+#include <string>
+
+// Снимок — хранит состояние Originator
+class Memento {
+    std::string state;
+public:
+    Memento(const std::string& s) : state(s) {}
+    std::string getState() const { return state; }
+};
+
+// Originator — создаёт и восстанавливает снимки
+class Originator {
+    std::string state;
+public:
+    void setState(const std::string& s) {
+        state = s;
+        std::cout << "Originator: state = " << state << "\n";
+    }
+    std::unique_ptr<Memento> save() const {
+        return std::make_unique<Memento>(state);
+    }
+    void restore(const Memento& m) {
+        state = m.getState();
+        std::cout << "Originator: восстановлен state = " << state << "\n";
+    }
+};
+
+// Caretaker — хранит историю снимков
+class Caretaker {
+    Originator& originator;
+    std::vector<std::unique_ptr<Memento>> history;
+public:
+    Caretaker(Originator& o) : originator(o) {}
+    void backup() {
+        history.push_back(originator.save());
+    }
+    void undo() {
+        if (history.empty()) return;
+        originator.restore(*history.back());
+        history.pop_back();
+    }
+};
