@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 
-// Receiver Ч бизнес-логика
 class Receiver {
 public:
     void Action() {
@@ -9,14 +8,12 @@ public:
     }
 };
 
-// »нтерфейс Command
 class Command {
 public:
     virtual ~Command() = default;
     virtual void Execute() = 0;
 };
 
-// ConcreteCommand
 class ConcreteCommand : public Command {
     Receiver* receiver;
 public:
@@ -27,7 +24,6 @@ public:
     }
 };
 
-// Invoker
 class Invoker {
     std::vector<Command*> history;
 public:

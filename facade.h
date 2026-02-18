@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-// Сложная подсистема
 class SubsystemA {
 public:
     std::string operationA() const { return "SubsystemA: ready"; }
@@ -15,7 +14,6 @@ public:
     std::string operationBZ() const { return "SubsystemB: go!"; }
 };
 
-// Фасад — единая точка входа в подсистему
 class Facade {
     SubsystemA sysA;
     SubsystemB sysB;

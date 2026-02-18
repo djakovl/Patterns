@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 
-// ---- Продукт ----
 class ProductBuilder {
 public:
     std::vector<std::string> parts;
@@ -19,7 +18,6 @@ public:
     }
 };
 
-// ---- Интерфейс Builder ----
 class Builder {
 public:
     virtual ~Builder() = default;
@@ -28,7 +26,6 @@ public:
     virtual void buildPartC() = 0;
 };
 
-// ---- ConcreteBuilder ----
 class ConcreteBuilder : public Builder {
     std::unique_ptr<ProductBuilder> product;
 public:
@@ -50,7 +47,6 @@ public:
         product->parts.push_back("PartC");
     }
 
-    // Отдаёт готовый продукт и сбрасывает состояние
     std::unique_ptr<ProductBuilder> GetResult() {
         auto result = std::move(product);
         reset();
@@ -58,8 +54,6 @@ public:
     }
 };
 
-// ---- Director ----
-// Знает порядок шагов, но не знает конкретный Builder
 class Director {
     Builder* builder = nullptr;
 public:
@@ -67,12 +61,10 @@ public:
         builder = b;
     }
 
-    // Минимальная конфигурация
     void buildMinimal() {
         builder->buildPartA();
     }
 
-    // Полная конфигурация
     void buildFull() {
         builder->buildPartA();
         builder->buildPartB();

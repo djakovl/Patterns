@@ -277,15 +277,19 @@ void testFacade() {
 }
 
 void testFlyweight() {
-    std::cout << "Flyweight \n";
+    std::cout << "\n=== Flyweight ===\n";
     FlyweightFactory factory;
     auto fw1 = factory.getFlyweight("shared");
-    auto fw2 = factory.getFlyweight("shared"); // переиспользован
+    auto fw2 = factory.getFlyweight("shared");
     auto fw3 = factory.getFlyweight("other");
     fw1->operation("unique1");
     fw2->operation("unique2");
     fw3->operation("unique3");
+
+    UnsharedConcreteFlyweight unshared("allMyState");
+    unshared.operation("unique4");
 }
+
 
 void testProxy() {
     std::cout << "Proxy \n";

@@ -9,7 +9,6 @@ class Singleton {
     Singleton(const std::string& data) : singletonData(data) {}
 
 public:
-    // Запрещаем копирование и присваивание
     Singleton(const Singleton&) = delete;
     Singleton& operator=(const Singleton&) = delete;
 
@@ -24,5 +23,4 @@ public:
     }
 };
 
-// Инициализация статического поля
 Singleton* Singleton::uniqueInstance = nullptr;

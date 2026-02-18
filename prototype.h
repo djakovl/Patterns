@@ -3,14 +3,12 @@
 #include <memory>
 #include <string>
 
-// ---- Èםעונפויס Prototype ----
 class Prototype {
 public:
     virtual ~Prototype() = default;
     virtual std::unique_ptr<Prototype> clone() const = 0;
 };
 
-// ---- ConcretePrototype1 ----
 class ConcretePrototype1 : public Prototype {
     std::string field;
 public:
@@ -26,7 +24,6 @@ public:
     }
 };
 
-// ---- ConcretePrototype2 ----
 class ConcretePrototype2 : public Prototype {
     int value;
 public:

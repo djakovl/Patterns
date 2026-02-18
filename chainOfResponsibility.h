@@ -1,7 +1,6 @@
 ﻿#include <iostream>
 #include <string>
 
-// Handler
 class Handler {
 protected:
     Handler* successor = nullptr;
@@ -15,7 +14,6 @@ public:
     virtual void handleRequest(const std::string& request) = 0;
 };
 
-// ConcreteHandler1
 class ConcreteHandler1 : public Handler {
 public:
     void handleRequest(const std::string& request) override {
@@ -28,7 +26,6 @@ public:
     }
 };
 
-// ConcreteHandler2
 class ConcreteHandler2 : public Handler {
 public:
     void handleRequest(const std::string& request) override {

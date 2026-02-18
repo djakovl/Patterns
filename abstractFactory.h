@@ -3,7 +3,6 @@
 #include <memory>
 #include <iostream>
 
-//Продукты A
 class AbstractProductA {
 public:
     virtual ~AbstractProductA() = default;
@@ -24,7 +23,6 @@ public:
     }
 };
 
-//Продукты B
 class AbstractProductB {
 public:
     virtual ~AbstractProductB() = default;
@@ -52,7 +50,6 @@ public:
     }
 };
 
-//Абстрактная фабрика
 class AbstractFactory {
 public:
     virtual ~AbstractFactory() = default;
@@ -60,7 +57,6 @@ public:
     virtual std::unique_ptr<AbstractProductB> createProductB() const = 0;
 };
 
-// Фабрика 1 — создаёт продукты семейства 1
 class ConcreteFactory1 : public AbstractFactory {
 public:
     std::unique_ptr<AbstractProductA> createProductA() const override {
@@ -71,7 +67,6 @@ public:
     }
 };
 
-// Фабрика 2 — создаёт продукты семейства 2
 class ConcreteFactory2 : public AbstractFactory {
 public:
     std::unique_ptr<AbstractProductA> createProductA() const override {

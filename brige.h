@@ -3,14 +3,12 @@
 #include <memory>
 #include <string>
 
-// ---- Интерфейс Implementor ----
 class Implementor {
 public:
     virtual ~Implementor() = default;
     virtual std::string operationImpl() const = 0;
 };
 
-// ---- ConcreteImplementorA ----
 class ConcreteImplementorA : public Implementor {
 public:
     std::string operationImpl() const override {
@@ -18,7 +16,6 @@ public:
     }
 };
 
-// ---- ConcreteImplementorB ----
 class ConcreteImplementorB : public Implementor {
 public:
     std::string operationImpl() const override {
@@ -26,7 +23,6 @@ public:
     }
 };
 
-// ---- Abstraction — хранит ссылку на Implementor (композиция = ромб на схеме) ----
 class Abstraction {
 protected:
     std::unique_ptr<Implementor> impl;
@@ -39,7 +35,6 @@ public:
     }
 };
 
-// ---- Расширенная абстракция (опционально) ----
 class ExtendedAbstraction : public Abstraction {
 public:
     ExtendedAbstraction(std::unique_ptr<Implementor> i) : Abstraction(std::move(i)) {}
@@ -49,7 +44,6 @@ public:
     }
 };
 
-// ---- Client ----
 void clientCode(const Abstraction& abstraction) {
     std::cout << abstraction.operation() << "\n";
 }

@@ -5,7 +5,6 @@ class AbstractClass {
 public:
     virtual ~AbstractClass() = default;
 
-    // Шаблонный метод — определяет скелет алгоритма
     void templateMethod() const {
         baseOperation();
         requiredOperation();
@@ -16,7 +15,7 @@ protected:
         std::cout << "AbstractClass: baseOperation\n";
     }
     virtual void requiredOperation() const = 0;
-    virtual void hook() const {} // необязательный шаг
+    virtual void hook() const {} 
 };
 
 class ConcreteClassA : public AbstractClass {
@@ -34,5 +33,4 @@ protected:
     void requiredOperation() const override {
         std::cout << "ConcreteClassB: requiredOperation\n";
     }
-    // hook не переопределяем — используется пустая версия
 };

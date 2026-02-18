@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 
-// Снимок — хранит состояние Originator
 class Memento {
     std::string state;
 public:
@@ -12,7 +11,6 @@ public:
     std::string getState() const { return state; }
 };
 
-// Originator — создаёт и восстанавливает снимки
 class Originator {
     std::string state;
 public:
@@ -29,7 +27,6 @@ public:
     }
 };
 
-// Caretaker — хранит историю снимков
 class Caretaker {
     Originator& originator;
     std::vector<std::unique_ptr<Memento>> history;

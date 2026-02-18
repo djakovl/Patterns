@@ -16,7 +16,6 @@ public:
     }
 };
 
-// Proxy — контролирует доступ к RealSubject
 class Proxy : public Subject {
     mutable std::unique_ptr<RealSubject> realSubject;
 
