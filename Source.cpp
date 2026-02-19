@@ -14,19 +14,19 @@ int main() {
     //testAdapter();
     //testBrige();
     //testComposite();
-    testComposite();
-    testDecorator();
-    testFacade();
-    testFlyweight();
-    testProxy();
-    testIterator();
-    testMediator();
-    testMemento();
-    testObserver();
-    testState();
-    testStrategy();
-    testTemplateMethod();
-    testVisitor();
+    //testDecorator();
+    //testFacade();
+    //testFlyweight();
+    //testProxy();
+    //testIterator();
+    //testMediator();
+    //testMemento();
+    //testObserver();
+    //testState();
+    //testStrategy();
+    //testTemplateMethod();
+    //testVisitor();
+    testInterpreter();
     return 0;
 }
 

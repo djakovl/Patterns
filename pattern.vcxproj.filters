@@ -95,5 +95,8 @@
     <ClInclude Include="composite.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="interpreter.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

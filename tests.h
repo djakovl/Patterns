@@ -22,6 +22,7 @@
 #include "strategy.h"
 #include "templateMethod.h"
 #include "visitor.h"
+#include "interpreter.h"
 
 #include "structures.h"
 #include "figure.h"
@@ -379,18 +380,23 @@ void testVisitor() {
     for (const auto& e : elements) e->accept(v2);
 }
 
-void runAllTests() {
-    testComposite();
-    testDecorator();
-    testFacade();
-    testFlyweight();
-    testProxy();
-    testIterator();
-    testMediator();
-    testMemento();
-    testObserver();
-    testState();
-    testStrategy();
-    testTemplateMethod();
-    testVisitor();
+void testInterpreter() {
+    std::cout << "Interpreter\n";
+
+    // Terminal-выражени€ Ч "слова" грамматики
+    auto term1 = std::make_shared<TerminalExpression>("hello");
+    auto term2 = std::make_shared<TerminalExpression>("world");
+
+    auto sentence = std::make_shared<NonterminalExpression>();
+    sentence->add(term1);
+    sentence->add(term2);
+
+    auto paragraph = std::make_shared<NonterminalExpression>();
+    paragraph->add(sentence);
+    paragraph->add(std::make_shared<TerminalExpression>("!"));
+
+    Context ctx("hello world !");
+    paragraph->interpret(ctx);
+    std::cout << "Result: " << ctx.getOutput() << "\n";
 }
+
